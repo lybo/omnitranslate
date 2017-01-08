@@ -1,29 +1,29 @@
 <template>
-  <div class="test">
+<div class="test">
     <h1 class="test__msg">{{ message }}</h1>
-  </div>
+</div>
 </template>
 
 <script>
-  export default {
+export default {
     name: 'test',
     props: ['message'],
     data() {
-      return {
-        msg: 'TEST',
-      };
+        return {
+            msg: 'TEST',
+        };
     },
-  };
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
-  .test {
+.test {
     color: #FFFFFF;
     background: #000000;
 
     &__msg {
-      font-size: 12px;
+        font-size: 12px;
     }
-  }
+}
 </style>

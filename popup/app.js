@@ -3,7 +3,7 @@ document.addEventListener("click", function(e) {
     return;
   }
 
-  var fullURL = browser.runtime.getURL("popup/options.html");
+  var fullURL = browser.runtime.getURL("options/index.html");
   browser.tabs.create({
     url: fullURL
   });
