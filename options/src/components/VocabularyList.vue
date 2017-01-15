@@ -13,8 +13,8 @@
             </ul>
 
             <ul class="vocabulary__translations">
-                <li class="vocabulary__translation" v-for="traslation in vocabulary.words">
-                    <div class="vocabulary__word" v-for="word in traslation">
+                <li class="vocabulary__translation" v-for="item in vocabulary.words">
+                    <div class="vocabulary__word" v-for="word in item.translation">
                         {{ word }}
                     </div>
                 </li>
@@ -27,22 +27,10 @@
 <script>
 export default {
     name: 'VocabularyList',
-    data() {
-        return {
-            list: [],
-        };
-    },
-    mounted: function mounted() {
-        getData()
-            .then(data => {
-                this.list = data.vocabularyList || [];
-            })
-            .catch(console.error);
-// {
-//    vocabularyList: [
-//        {url: 'http://www.google.com', title: 'google', langs: ['en', 'el'], words: [['test', 'δοκιμή']]}
-//    ]
-// }
+    computed: {
+        list() {
+            return this.$store.getters.vocabularyList;
+        },
     },
     methods: {
         traslationArray: function (traslation) {
@@ -83,6 +71,7 @@ export default {
         margin: 0;
         padding: 0;
         display: flex;
+        flex-direction: column;
     }
 
     &__translation {

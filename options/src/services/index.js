@@ -1,5 +1,5 @@
 const service = window.browser ? window.browser.storage.local : localStorage;
-const LOCAL_STORAGE_KEY = 'omnitraslate';
+const LOCAL_STORAGE_KEY = 'omnitranslate';
 
 export function getData() {
     return new Promise((resolve, reject) => {
@@ -7,7 +7,7 @@ export function getData() {
         try {
             let data = null;
             if (window.browser) {
-                service.get(LOCAL_STORAGE_KEY)
+                service.get()
                     .then(resolve)
                     .catch(reject);
             } else {
